@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<project name="testng" default="run_testng" basedir=".">
+	<property name="src" value="src" />
+	<property name="dest" value="classes" />
+	<property name="lib.dir" value="${basedir}/lib"/>
+	<property name="output.dir" value="${basedir}/OneSight"/>
+
+	<path id="compile.path">
+		<fileset dir="${lib.dir}/">
+			<include name="*.jar" />
+			<include name="selenium.jar" />
+		</fileset>
+		<pathelement location="${src}" />
+		<pathelement location="${dest}"/>
+	</path>
+
+	<target name="init">
+		<mkdir dir="${dest}" />
+	</target>
+
+	<target name="compile" depends="init">
+    <javac srcdir="${src}" destdir="${dest}" classpathref="compile.path"/>
+	<!--<javac srcdir="${src}" destdir="${dest}" encoding="gbk">
+        <classpath refid="compile.path"></classpath>
+    </javac>-->
+     </target>
+
+<taskdef resource="testngtasks" classpath="${lib.dir}/testng.jar"/>
+<target name="run_testng" depends="compile" description="run testng">
+    <echo>running testng</echo>
+
+</target>
+
+
+
+	<!-- run tests -->
+	<target name="run_tests" depends="compile">
+		<echo>running tests</echo>
+		<testng classpathref="compile.path" outputdir="${output.dir}" haltonfailure="true" usedefaultlisteners="false"
+				listeners="org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter" failureproperty="test.failed">
+			<xmlfileset dir="${src}/" >
+				<include name="testng.xml" />
+			</xmlfileset>
+			<sysproperty key="org.uncommons.reportng.title" value="My Test Report"/>
+		</testng>
+		<fail message="test failed.." if="test.failed"/>
+	</target>
+</project>
