@@ -4,7 +4,7 @@ import page.PageObject;
 import util.WebDriverUtil;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import xpath.front.LoginPageXapth;
+import xpath.front.LoginPageXpath;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,21 +35,21 @@ public class LoginPage {
 			WebDriverUtil.maxWindow(driver);
 			driver.get(url);
 			// 清空用户名
-			WebDriverUtil.getElement(driver, LoginPageXapth.USERNAME_INPUT).clear();
-			//PageObject.inputText(driver, LoginPageXapth.USERNAME_INPUT, "用户名", username);
+			WebDriverUtil.getElement(driver, LoginPageXpath.USERNAME_INPUT).clear();
+			//PageObject.inputText(driver, LoginPageXpath.USERNAME_INPUT, "用户名", username);
 			logger.info("输入用户名:" + username);
 			// 输入用户名
-			WebDriverUtil.getElement(driver, LoginPageXapth.USERNAME_INPUT).sendKeys(username);
+			WebDriverUtil.getElement(driver, LoginPageXpath.USERNAME_INPUT).sendKeys(username);
 			// 清空密码
-			WebDriverUtil.getElement(driver, LoginPageXapth.PASSWORD_INPUT).clear();
-			//PageObject.inputText(driver, LoginPageXapth.PASSWORD_INPUT, "密码", password);
+			WebDriverUtil.getElement(driver, LoginPageXpath.PASSWORD_INPUT).clear();
+			//PageObject.inputText(driver, LoginPageXpath.PASSWORD_INPUT, "密码", password);
 
 			logger.info("输入密码:" + password);
 			// 输入密码
-			WebDriverUtil.getElement(driver, LoginPageXapth.PASSWORD_INPUT).sendKeys(password);
+			WebDriverUtil.getElement(driver, LoginPageXpath.PASSWORD_INPUT).sendKeys(password);
 
 			WebDriverUtil.sleep(1000);
-			PageObject.clickBtn(driver, LoginPageXapth.LOGIN_BUTTON, "登录按钮");
+			PageObject.clickBtn(driver, LoginPageXpath.LOGIN_BUTTON, "登录按钮");
 			logger.info("点击登陆按钮!");
 			// 点击登陆按钮
 			//WebDriverUtil.getElement(driver, "//input[@id='button']").click();

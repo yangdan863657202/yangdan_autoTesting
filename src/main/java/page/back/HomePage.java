@@ -1,13 +1,12 @@
-package page.front;
-
-import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+package page.back;
 
 import exception.PageElementNotException;
-import page.PageObject;
 import log.MyLogger;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import page.PageObject;
 import thread.SystemContext;
+import org.openqa.selenium.By;
 
 /**
  * 登陆成功后进入的主页面
@@ -38,53 +37,18 @@ public class HomePage {
 	}
 
 	/**
-	 * 账户中心页面
+	 * 业务管理页面
 	 * 
 	 * @throws PageElementNotException
 	 */
-	public void getAccountCenterPage() throws PageElementNotException {
-		this.clickBtn("账户中心");
-	}
-
-	/**
-	 * 我要投资页面
-	 *
-	 * @throws PageElementNotException
-	 */
-	public void getInvestPage() throws PageElementNotException {
-		this.clickBtn("我要投资");
-	}
-
-	/**
-	 * 业务模式页面
-	 *
-	 * @throws PageElementNotException
-	 */
-	public void getBusinessModelPage() throws PageElementNotException {
-		this.clickBtn("业务模式");
-	}
-
-	/**
-	 * 安全保障页面
-	 *
-	 * @throws PageElementNotException
-	 */
-	public void getSafetyAssurancePage() throws PageElementNotException {
-		this.clickBtn("安全保障");
-	}
-
-	/**
-	 * 关于我们页面
-	 *
-	 * @throws PageElementNotException
-	 */
-	public void getAboutUsPage() throws PageElementNotException {
-		this.clickBtn("关于我们");
+	public void getBusinessManagementPage() throws PageElementNotException {
+		this.clickBtn("业务管理");
 	}
 
 
 	/**
 	 * 根据名称点击按钮
+	 * 
 	 * @param name
 	 * 菜单按钮的文本名称
 	 * @throws PageElementNotException

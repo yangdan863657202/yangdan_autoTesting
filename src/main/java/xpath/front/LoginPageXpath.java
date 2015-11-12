@@ -6,7 +6,7 @@ package xpath.front;
  * @author Yangdan
  *
  */
-public interface LoginPageXapth {
+public interface LoginPageXpath {
 	/**
 	 * 用户名xpath
 	 */
