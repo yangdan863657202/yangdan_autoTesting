@@ -62,7 +62,7 @@ public class WebDriverUtil {
 
 		try {
 			InputStream resourceAsStream = WebDriverUtil.class.getClassLoader()
-					.getResourceAsStream("webdriver-rul.properties");
+					.getResourceAsStream("webdriver-url.properties");
 			Properties properties = new Properties();
 			properties.load(resourceAsStream);
 			String url = properties.getProperty("url");

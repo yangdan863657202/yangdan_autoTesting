@@ -22,5 +22,5 @@ public interface SignPageXpath {
     /**
      * 赚取积分:-->xpath:只读文本
      */
-    String EARN_POINT_INPUT = "/html/body/div[3]/div[2]/div/div[2]/div[1]/div/button";
+    String EARN_POINT_INPUT = "/html/body/div[3]/div[2]/div/div[1]/div/p/span[2]";
 }
