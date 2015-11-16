@@ -1,5 +1,7 @@
 package page.front;
 
+import model.front.FundDetailInfo;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -8,12 +10,14 @@ import org.openqa.selenium.interactions.Actions;
 import util.WebDriverUtil;
 import xpath.front.AccountCenterPageXpath;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by yangdan
  */
 public class AccountCenterPage {
+    private static Logger logger = Logger.getLogger(LoginPage.class);
 
     public void leftListClick(WebDriver driver){
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -34,6 +38,44 @@ public class AccountCenterPage {
             System.out.println("--------------");
         }
 
+    }
+
+    public List<FundDetailInfo> getAllFundDetails(
+            WebDriver driver) {
+        String panelName = "资金明细";
+        List<FundDetailInfo> infos = new ArrayList<FundDetailInfo>();
+        List<WebElement> trs = this
+                .getPanelDataGridBTableTrs(driver, panelName);
+
+        if (trs == null || trs.size() < 1) {
+            logger.info(panelName+"没有数据！");
+            return null;
+        }
+        logger.info(panelName+"共计[" + trs.size() + "]条");
+        for (int i = 0; i < trs.size(); i++) {
+
+            FundDetailInfo info = new FundDetailInfo();
+
+            List<WebElement> tds = trs.get(i).findElements(
+                    By.xpath("./td[@field]"));
+
+            for (int j = 0; j < tds.size(); j++) {
+                WebElement td = tds.get(j);
+
+                String value=td.findElement(By.tagName("div")).getAttribute("innerHTML");
+                if ("id".equals(td.getAttribute("field"))) {
+                    info.setId(value);
+                }
+                if ("calDeductDate".equals(td.getAttribute("field"))) {
+                    info.setCalDeductDate(value);
+                }
+
+            }
+            logger.info(panelName+info);
+            infos.add(info);
+        }
+
+        return infos;
     }
 
 
