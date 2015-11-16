@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite hostname="PC-20150728SOSQ" tests="1" failures="0" timestamp="28 Aug 2015 07:34:46 GMT" time="3.107" errors="0">
-  <testcase name="SearchBaidu" time="3.104" classname="BaiduSearch"/>
+  <testcase name="SearchBaidu" time="3.104" classname="TestDemo"/>
 </testsuite>

@@ -98,7 +98,7 @@ public class PageObject {
 	}
 
 	/**
-	 * 在控件[文本输入框、下拉选择、checkbo多选框、文本区域输入框]中输入值
+	 * 在控件[文本输入框、下拉选择、checkbox多选框、文本区域输入框]中输入值
 	 * 
 	 * @param driver
 	 * @param xpath

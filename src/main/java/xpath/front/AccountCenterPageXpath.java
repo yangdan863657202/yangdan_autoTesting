@@ -26,6 +26,11 @@ public interface AccountCenterPageXpath {
     String CREDIT_RIGHT_BUTTON = "/html/body/div[3]/div[1]/div/ul/li[2]/div/a[3]";
 
     /**
+     * 资金账户:-->xpath:按钮
+     */
+    String FUND_ACCOUNT_BUTTON = "/html/body/div[3]/div[1]/div/ul/li[3]/a";
+
+    /**
      * 资金账户-充值:-->xpath:按钮
      */
     String RECHARGE_BUTTON = "/html/body/div[3]/div[1]/div/ul/li[3]/div/a[1]";
@@ -74,5 +79,20 @@ public interface AccountCenterPageXpath {
      * 其他-积分明细:-->xpath:按钮
      */
     String INTEGRAL_DETAIL_BUTTON = "/html/body/div[3]/div[1]/div/ul/li[7]/div/a[2]";
+
+    /**
+     * 右上角持标概况:-->xpath:按钮
+     */
+    String TARGET_GENERAL_BUTTON = "/html/body/div[3]/div[2]/div/div/div[2]/div[1]/a";
+
+    /**
+     * 右上角持标列表:-->xpath:按钮
+     */
+    String TARGET_LIST_BUTTON = "/html/body/div[3]/div[2]/div/div/div[2]/div[2]/a";
+
+    /**
+     * 右上角资金账户:-->xpath:按钮
+     */
+    String FUND_ACCOUNT_BUTTON1 = "/html/body/div[3]/div[2]/div/div/div[2]/div[3]/a";
 
 }

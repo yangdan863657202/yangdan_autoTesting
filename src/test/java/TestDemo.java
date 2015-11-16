@@ -8,9 +8,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class BaiduSearch{
+public class TestDemo {
     public WebDriver driver;
-    public BaiduSearch(){
+    public TestDemo(){
         //driver = new FirefoxDriver();
         //System.setProperty("webdriver.chrome.driver","D:/chromedriver/chromedriver.exe");
         driver =new ChromeDriver();

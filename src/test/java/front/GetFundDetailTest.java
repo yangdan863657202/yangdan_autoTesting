@@ -3,37 +3,32 @@ package front;
 import exception.PageElementNotException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import page.front.HomePage;
 import page.front.LoginPage;
-import util.WebDriverUtil;
+import page.front.RechargePage;
 
 /**
- * Created by Yangdan
+ * Created by yangdan
  */
-
-public class LoginTest {
-
+public class GetFundDetailTest {
     private WebDriver driver;
     HomePage homePage=new HomePage();
 
     @BeforeTest
     public void setUp() {
-        //driver = WebDriverUtil.getWebDriver(BrowserType.CHROME);
         driver=new ChromeDriver();
     }
     @Test
-    public void loginTest()throws PageElementNotException {
-        homePage = new LoginPage().login(driver);
-        //homePage=loginService.login("13761677814","19901018ab+");
+    public void signTest()throws PageElementNotException {
+        homePage = new LoginPage().login(driver,"13817527498","123456a.");
+
+
     }
     @AfterTest
     public void tearDown(){
         driver.quit();
     }
-
-
 }

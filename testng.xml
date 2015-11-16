@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="false">
     <test name="Test1" preserve-order="true">
         <classes>
-            <class name="BaiduSearch">
+            <class name="TestDemo">
                 <methods>
                     <include name="SearchBaidu"/>
                 </methods>
@@ -12,7 +12,7 @@
     </test>
     <test name="Test2" preserve-order="true">
         <classes>
-            <class name="BaiduSearch">
+            <class name="TestDemo">
                 <methods>
                     <include name="SearchBaidu"/>
                 </methods>

@@ -84,4 +84,23 @@ public class LoginPage {
 		}
 		return null;
 	}
+
+	public HomePage login(WebDriver driver, String username, String password){
+		InputStream resourceAsStream = LoginPage.class.getClassLoader()
+			.getResourceAsStream("login-info.properties");
+
+		try {
+			Properties properties = new Properties();
+			properties.load(resourceAsStream);
+			String url = properties.getProperty("url");
+			logger.info("使用用户名密码登陆：username[" + username + "],password["
+					+ password + "]");
+			return login(driver, username, password, url);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+
+	}
 }
+
