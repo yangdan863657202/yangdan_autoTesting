@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import page.front.AccountCenterPage;
 import page.front.HomePage;
 import page.front.LoginPage;
 import page.front.RechargePage;
@@ -20,6 +21,7 @@ import util.WebDriverUtil;
 public class GetFundDetailTest {
     private WebDriver driver;
     HomePage homePage=new HomePage();
+    AccountCenterPage accountCenterPage=new AccountCenterPage();
 
     @BeforeTest
     public void setUp() {
@@ -33,8 +35,10 @@ public class GetFundDetailTest {
         WebElement invot = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/ul/li[3]/a"));
         Actions ac = new Actions(driver);
         ac.moveToElement(invot).perform();
-        WebDriverUtil.sleep(1500);
+        WebDriverUtil.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/ul/li[3]/div/a[3]")).click();
+
+        accountCenterPage.getAllFundDetails(driver);
 
 
     }

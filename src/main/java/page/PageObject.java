@@ -457,6 +457,17 @@ public class PageObject {
 	}
 
 	/**
+	 * 获取非窗口的panel中的存放数据的Table中的所有行
+	 *
+	 * @param driver
+	 * @param xpath
+	 * @return 非窗口的panel中的存放数据的Table所有行对象
+	 */
+	public static List<WebElement> getPanelDataGridBTableTrs(WebDriver driver, String xpath) {
+		return WebDriverUtil.getElements(driver, xpath);
+	}
+
+	/**
 	 * 判断是否为空
 	 * 
 	 * @param string
