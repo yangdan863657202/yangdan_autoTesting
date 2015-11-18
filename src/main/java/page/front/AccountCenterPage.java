@@ -64,6 +64,8 @@ public class AccountCenterPage {
                 String value=td.getText();
                 if (j==0) {
                     info.setDate(value);
+
+
                 }
                 if (j==1) {
                     info.setIncomeOutcome(value);

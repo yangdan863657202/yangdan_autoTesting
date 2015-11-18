@@ -23,8 +23,9 @@ public class RechargePage {
         WebDriverUtil.getElement(driver, RechargePageXpath.RECHARGE_AMOUNT_INPUT).sendKeys(amount);
         WebDriverUtil.getElement(driver, RechargePageXpath.NEXT_STEP_BUTTON).click();
         WebDriverUtil.sleep(1000);
-        WebDriverUtil.getElement(driver, RechargePageXpath.CONFIRM_BUTTON).click();
+        //WebDriverUtil.getElement(driver, RechargePageXpath.CONFIRM_BUTTON).click();
+
         WebDriverUtil.getElement(driver, RechargePageXpath.CONFIRM_PAY_BUTTON).click();
-        logger.info("本次充值" + amount + "元");
+        logger.info("本次充值" + amount + "元成功");
     }
 }

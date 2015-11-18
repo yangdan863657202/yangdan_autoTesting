@@ -24,7 +24,7 @@ public class RechargeTest {
         driver=new ChromeDriver();
     }
     @Test
-    public void signTest()throws PageElementNotException {
+    public void rechargeTest()throws PageElementNotException {
         homePage = new LoginPage().login(driver,"13817527498","123456a.");
         rechargePage.recharge(driver, Integer.toString(100));
 

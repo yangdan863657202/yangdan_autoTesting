@@ -38,6 +38,7 @@ public class GetFundDetailTest {
         WebDriverUtil.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/ul/li[3]/div/a[3]")).click();
 
+        WebDriverUtil.sleep(2000);
         accountCenterPage.getAllFundDetails(driver);
 
 

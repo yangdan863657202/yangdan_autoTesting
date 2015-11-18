@@ -3,18 +3,18 @@
 <suite name="Suite" parallel="false">
     <test name="Test1" preserve-order="true">
         <classes>
-            <class name="TestDemo">
+            <class name="front.LoginTest">
                 <methods>
-                    <include name="SearchBaidu"/>
+                    <include name="loginTest"/>
                 </methods>
             </class>
         </classes>
     </test>
     <test name="Test2" preserve-order="true">
         <classes>
-            <class name="TestDemo">
+            <class name="front.RechargeTest">
                 <methods>
-                    <include name="SearchBaidu"/>
+                    <include name="rechargeTest"/>
                 </methods>
             </class>
         </classes>
