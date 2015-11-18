@@ -64,8 +64,6 @@ public class AccountCenterPage {
                 String value=td.getText();
                 if (j==0) {
                     info.setDate(value);
-
-
                 }
                 if (j==1) {
                     info.setIncomeOutcome(value);
@@ -79,6 +77,7 @@ public class AccountCenterPage {
 
             }
             logger.info(panelName+info);
+            System.out.println(panelName+info);
             infos.add(info);
         }
 
