@@ -19,6 +19,7 @@ import java.util.List;
  */
 public class AccountCenterPage {
     private static Logger logger = Logger.getLogger(LoginPage.class);
+    /////////////////
 
     public void leftListClick(WebDriver driver){
         JavascriptExecutor js = (JavascriptExecutor) driver;
