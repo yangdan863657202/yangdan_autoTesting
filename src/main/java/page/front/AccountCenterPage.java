@@ -19,7 +19,6 @@ import java.util.List;
  */
 public class AccountCenterPage {
     private static Logger logger = Logger.getLogger(LoginPage.class);
-    /////////////////
 
     public void leftListClick(WebDriver driver){
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -29,8 +28,8 @@ public class AccountCenterPage {
         js.executeScript(jsStr);
     }
 
-    /*public void getFundDetail(){
-        List<WebElement> trs = accountInfoPage.getPanelDataGridHTableTrs(driver, "账户还款计划信息");
+    public void getFundDetail(WebDriver driver){
+        List<WebElement> trs = PageObject.getPanelDataGridBTableTrs(driver, "账户还款计划信息");
         for (WebElement tr : trs) {
             List<WebElement> tds= tr.findElements(By.xpath("./td"));
             for (WebElement td : tds) {
@@ -40,7 +39,7 @@ public class AccountCenterPage {
             System.out.println("--------------");
         }
 
-    }*/
+    }
 
     public List<FundDetailInfo> getAllFundDetails(
             WebDriver driver) {
