@@ -28,6 +28,52 @@ public class AccountCenterPage {
         js.executeScript(jsStr);
     }
 
+    public void leftNavClick(WebDriver driver,String subMenuName){
+        if(subMenuName.equals("账户首页")){
+
+        }
+        if(subMenuName.equals("我的投资券")){
+
+        }
+        if(subMenuName.equals("储蓄罐明细")){
+
+        }
+        if(subMenuName.equals("债权流转")){
+
+        }
+        if(subMenuName.equals("充值")){
+
+        }
+        if(subMenuName.equals("提现")){
+
+        }
+        if(subMenuName.equals("资金明细")){
+
+        }
+        if(subMenuName.equals("绑定银行卡")){
+
+        }
+        if(subMenuName.equals("个人资料")){
+
+        }
+        if(subMenuName.equals("收货地址")){
+
+        }
+        if(subMenuName.equals("会员中心")){
+
+        }
+        if(subMenuName.equals("安全设置")){
+
+        }
+        if(subMenuName.equals("每日签到")){
+
+        }
+        if(subMenuName.equals("积分明细")){
+
+        }
+
+    }
+
     public void getFundDetail(WebDriver driver){
         List<WebElement> trs = PageObject.getPanelDataGridBTableTrs(driver, "账户还款计划信息");
         for (WebElement tr : trs) {

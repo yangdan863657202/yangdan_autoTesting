@@ -1,5 +1,6 @@
 package page.front;
 
+import org.openqa.selenium.By;
 import page.PageObject;
 import util.WebDriverUtil;
 import org.apache.log4j.Logger;
@@ -32,8 +33,10 @@ public class LoginPage {
 	public HomePage login(WebDriver driver, String username, String password,
 			String url) {
 		try {
-			WebDriverUtil.maxWindow(driver);
+			//WebDriverUtil.maxWindow(driver);
 			driver.get(url);
+
+			driver.findElement(By.linkText("登录")).click();
 			// 清空用户名
 			WebDriverUtil.getElement(driver, LoginPageXpath.USERNAME_INPUT).clear();
 			//PageObject.inputText(driver, LoginPageXpath.USERNAME_INPUT, "用户名", username);
@@ -49,11 +52,12 @@ public class LoginPage {
 			WebDriverUtil.getElement(driver, LoginPageXpath.PASSWORD_INPUT).sendKeys(password);
 
 			WebDriverUtil.sleep(1000);
-			PageObject.clickBtn(driver, LoginPageXpath.LOGIN_BUTTON, "登录按钮");
+			WebDriverUtil.getElement(driver, LoginPageXpath.LOGIN_BUTTON).click();
+			//PageObject.clickBtn(driver, LoginPageXpath.LOGIN_BUTTON, "登录按钮");
 			logger.info("点击登陆按钮!");
 			// 点击登陆按钮
 			//WebDriverUtil.getElement(driver, "//input[@id='button']").click();
-			return new HomePage();
+			return new HomePage(driver);
 
 		} catch (Exception e) {
 			logger.info(e.getMessage());

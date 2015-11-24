@@ -17,8 +17,15 @@ import thread.SystemContext;
  */
 public class HomePage {
 
-	private WebDriver driver = SystemContext.getWebDriver();
+	private WebDriver driver;
 	private Logger logger = MyLogger.getLogger(HomePage.class);
+
+	public HomePage(WebDriver driver){
+		this.driver=driver;
+	}
+
+	public HomePage(){
+	}
 
 	/**
 	 * 退出
