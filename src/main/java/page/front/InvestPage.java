@@ -1,0 +1,61 @@
+package page.front;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import util.WebDriverUtil;
+import xpath.front.InvestPageXpath;
+
+import java.util.List;
+
+/**
+ * Created by yangdan
+ */
+public class InvestPage {
+    private static Logger logger = Logger.getLogger(LoginPage.class);
+
+    public void immediateBuyingClick(WebDriver driver,String targetName){
+        //首先得到所有tr的集合
+        List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"listone\"]/table"));
+        System.out.println(rows.size());
+        for (WebElement row : rows) {
+            //得到当前tr里td的集合
+            List<WebElement> cols =  row.findElements(By.tagName("td"));
+            if(targetName.equals(cols.get(0).getText())){
+                cols.get(5).click();
+            }
+            if(targetName.equals(cols.get(0).getText())){
+                cols.get(5).click();
+            }
+            if(targetName.equals(cols.get(0).getText())){
+                cols.get(5).click();
+            }
+
+        }
+    }
+
+    public void immediateInvestClick(WebDriver driver,String investAmount){
+        WebDriverUtil.getElement(driver, InvestPageXpath.INVEST_AMOUNT_INPUT).clear();
+        WebDriverUtil.getElement(driver,InvestPageXpath.INVEST_AMOUNT_INPUT).sendKeys(investAmount);
+        WebDriverUtil.getElement(driver, InvestPageXpath.IMMEDIATE_INVEST_BUTTON).click();
+        WebDriverUtil.sleep(1000);
+        WebDriverUtil.getElement(driver, InvestPageXpath.PIGGY_DEDUCT_INPUT).clear();
+        WebDriverUtil.getElement(driver,InvestPageXpath.PIGGY_DEDUCT_INPUT).sendKeys("0");
+        WebDriverUtil.getElement(driver, InvestPageXpath.CONFIRM_PAY_BUTTON).click();
+
+    }
+
+    //将滚动条滚到适合的位置
+    public void setScroll(WebDriver driver,int height){
+        try {
+            String setscroll = "document.documentElement.scrollTop=" + height;
+
+            JavascriptExecutor jse=(JavascriptExecutor) driver;
+            jse.executeScript(setscroll);
+        } catch (Exception e) {
+            System.out.println("Fail to set the scroll.");
+        }
+    }
+}

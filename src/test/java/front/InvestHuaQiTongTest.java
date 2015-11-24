@@ -8,6 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import page.front.HomePage;
+import page.front.InvestPage;
 import page.front.LoginPage;
 import util.WebDriverUtil;
 
@@ -17,6 +18,7 @@ import util.WebDriverUtil;
 public class InvestHuaQiTongTest {
     private WebDriver driver;
     HomePage homePage=new HomePage();
+    InvestPage investPage=new InvestPage();
 
     @BeforeTest
     public void setUp() {
@@ -26,9 +28,12 @@ public class InvestHuaQiTongTest {
     @Test
     public void loginTest()throws PageElementNotException {
         homePage = new LoginPage().login(driver);
-        WebDriverUtil.wait(driver,"/html/body/div[3]/div/div[2]/ul/li[2]/a");
+        WebDriverUtil.sleep(1000);
         homePage.getInvestPage();
-        
+        investPage.setScroll(driver,500);
+
+        investPage.immediateBuyingClick(driver, "Auto Testing 华企通勿投");
+        investPage.immediateInvestClick(driver,Integer.toString(10000));
     }
     @AfterTest
     public void tearDown(){

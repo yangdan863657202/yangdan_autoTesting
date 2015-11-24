@@ -75,7 +75,7 @@ public class AccountCenterPage {
     }
 
     public void getFundDetail(WebDriver driver){
-        List<WebElement> trs = PageObject.getPanelDataGridBTableTrs(driver, "账户还款计划信息");
+        List<WebElement> trs = PageObject.getPanelDataGridBTableTrs(driver, "资金明细");
         for (WebElement tr : trs) {
             List<WebElement> tds= tr.findElements(By.xpath("./td"));
             for (WebElement td : tds) {
