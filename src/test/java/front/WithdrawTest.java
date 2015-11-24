@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 import page.front.HomePage;
 import page.front.LoginPage;
 import page.front.RechargePage;
+import page.front.WithdrawPage;
 import util.WebDriverUtil;
 
 /**
@@ -22,7 +23,7 @@ public class WithdrawTest {
 
     private WebDriver driver;
     HomePage homePage=new HomePage();
-    RechargePage rechargePage=new RechargePage();
+    WithdrawPage withdrawPage=new WithdrawPage();
 
     @BeforeTest
     public void setUp() {
@@ -30,18 +31,19 @@ public class WithdrawTest {
         driver=new ChromeDriver();
     }
     @Test
-    public void signTest()throws PageElementNotException {
-        homePage = new LoginPage().login(driver,"13817527498","123456a.");
-//        /html/body/div[3]/div[1]/div/ul/li[2]/a
-//        $("a").mouseover();
+    public void withdrawTest()throws PageElementNotException {
+        homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
+        homePage.getAccountCenterPage();
 
-        WebElement invot = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/ul/li[2]/a"));
-//        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/ul/li[2]/a")).click();
-        Actions ac = new Actions(driver);
-        ac.moveToElement(invot).perform();
-        WebDriverUtil.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/ul/li[2]/div/a[2]")).click();
+//        WebElement invot = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/ul/li[2]/a"));
+//        Actions ac = new Actions(driver);
+//        ac.moveToElement(invot).perform();
+//        WebDriverUtil.sleep(1000);
+//        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/ul/li[2]/div/a[2]")).click();
+
+        withdrawPage.withdraw(driver,Integer.toString(100));
+
 
 
 

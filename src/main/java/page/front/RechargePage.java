@@ -11,10 +11,12 @@ import xpath.front.SignPageXpath;
  * Created by yangdan
  */
 public class RechargePage {
-    private static Logger logger = Logger.getLogger(LoginPage.class);
+    private static Logger logger = Logger.getLogger(RechargePage.class);
     AccountCenterPage accountCenterPage=new AccountCenterPage();
+
     public void recharge(WebDriver driver, String amount){
 
+        WebDriverUtil.maxWindow(driver);
         WebDriverUtil.getElement(driver, AccountCenterPageXpath.FUND_ACCOUNT_BUTTON1).click();
         WebDriverUtil.getElement(driver, RechargePageXpath.RECHARGE_BUTTON).click();
 

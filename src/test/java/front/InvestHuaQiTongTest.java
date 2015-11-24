@@ -30,9 +30,11 @@ public class InvestHuaQiTongTest {
         homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
         homePage.getInvestPage();
-        investPage.setScroll(driver,500);
+        WebDriverUtil.sleep(1000);
+        investPage.setScrollToElement(driver, "/html/body/div[4]/div/div/div/div[2]/ul/li[1]");
 
-        investPage.immediateBuyingClick(driver, "Auto Testing 华企通勿投");
+        investPage.immediateBuyingClick(driver, "质保部-预约标001");
+        //investPage.immediateBuyingClick(driver, "Auto Testing 华企通勿投");
         investPage.immediateInvestClick(driver,Integer.toString(10000));
     }
     @AfterTest

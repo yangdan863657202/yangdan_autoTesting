@@ -93,6 +93,6 @@ public interface AccountCenterPageXpath {
     /**
      * 右上角资金账户:-->xpath:按钮
      */
-    String FUND_ACCOUNT_BUTTON1 = "/html/body/div[3]/div[2]/div/div/div[2]/div[3]/a";
+    String FUND_ACCOUNT_BUTTON1 = "//*[@id=\"container\"]/div[2]/div[3]/a";
 
 }

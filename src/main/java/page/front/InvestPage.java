@@ -22,25 +22,29 @@ public class InvestPage {
         System.out.println(rows.size());
         for (WebElement row : rows) {
             //得到当前tr里td的集合
+
             List<WebElement> cols =  row.findElements(By.tagName("td"));
+            for (WebElement col : cols) {
+                System.out.print(col.getText());//得到td里的文本
+                System.out.println(" ");
+            }
+            System.out.println();
+
             if(targetName.equals(cols.get(0).getText())){
                 cols.get(5).click();
             }
-            if(targetName.equals(cols.get(0).getText())){
-                cols.get(5).click();
-            }
-            if(targetName.equals(cols.get(0).getText())){
-                cols.get(5).click();
-            }
+
 
         }
     }
 
     public void immediateInvestClick(WebDriver driver,String investAmount){
+        WebDriverUtil.sleep(1000);
         WebDriverUtil.getElement(driver, InvestPageXpath.INVEST_AMOUNT_INPUT).clear();
         WebDriverUtil.getElement(driver,InvestPageXpath.INVEST_AMOUNT_INPUT).sendKeys(investAmount);
         WebDriverUtil.getElement(driver, InvestPageXpath.IMMEDIATE_INVEST_BUTTON).click();
         WebDriverUtil.sleep(1000);
+        WebDriverUtil.maxWindow(driver);
         WebDriverUtil.getElement(driver, InvestPageXpath.PIGGY_DEDUCT_INPUT).clear();
         WebDriverUtil.getElement(driver,InvestPageXpath.PIGGY_DEDUCT_INPUT).sendKeys("0");
         WebDriverUtil.getElement(driver, InvestPageXpath.CONFIRM_PAY_BUTTON).click();
@@ -57,5 +61,10 @@ public class InvestPage {
         } catch (Exception e) {
             System.out.println("Fail to set the scroll.");
         }
+    }
+
+    public void setScrollToElement(WebDriver driver,String elementXpath){
+        WebElement element = driver.findElement(By.xpath(elementXpath));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
     }
 }

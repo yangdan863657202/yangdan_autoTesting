@@ -8,12 +8,7 @@ public interface RechargePageXpath {
     /**
      * 账户中心资金账户页面“充值”按钮:-->xpath:按钮
      */
-    String RECHARGE_BUTTON = "/html/body/div[3]/div[2]/div/div/div[3]/div[3]/div[2]/div[2]/div/div[2]/a[1]";
-
-    /**
-     * 账户中心资金账户页面“提现”按钮:-->xpath:按钮
-     */
-    String WITHDRAW_BUTTON = "/html/body/div[3]/div[2]/div/div/div[3]/div[3]/div[2]/div[2]/div/div[2]/a[2]";
+    String RECHARGE_BUTTON = "//*[@id=\"container\"]/div[3]/div[3]/div[3]/div[2]/div[2]/div/p[5]/a[2]";
 
     /**
      * 易极付充值页面“充值金额”输入框:-->xpath:文本输入框

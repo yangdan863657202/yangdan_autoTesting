@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import page.front.HomePage;
 import page.front.LoginPage;
 import page.front.RechargePage;
+import util.WebDriverUtil;
 
 /**
  * Created by yangdan
@@ -25,12 +26,14 @@ public class RechargeTest {
     }
     @Test
     public void rechargeTest()throws PageElementNotException {
-        homePage = new LoginPage().login(driver,"13817527498","123456a.");
+        homePage = new LoginPage().login(driver);
+        WebDriverUtil.sleep(1000);
+        homePage.getAccountCenterPage();
         rechargePage.recharge(driver, Integer.toString(100));
 
     }
     @AfterTest
     public void tearDown(){
-        driver.quit();
+        //driver.quit();
     }
 }

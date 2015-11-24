@@ -18,37 +18,22 @@ import util.WebDriverUtil;
  * Created by yangdan
  */
 public class LogoutTest {
-    private WebDriver driver=new ChromeDriver();
+    private WebDriver driver;
     HomePage homePage=new HomePage(driver);
 
     @BeforeTest
     public void setUp() {
         //driver = WebDriverUtil.getWebDriver(BrowserType.CHROME);
-
-//        driver=new FirefoxDriver();
+        driver=new ChromeDriver();
     }
     @Test
-    public void loginTest()throws PageElementNotException {
+    public void logoutTest()throws PageElementNotException {
         homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
-        homePage.getAccountCenterPage();
-      //  driver.findElement(By.linkText("账户中心")).click();
-//        /html/body/div[2]/div[1]/ul/li[2]/a/text()
-//        body > div.uCenter.clearfix > div.uCenter-left > ul > li:nth-child(2) > a
-        WebDriverUtil.sleep(2000);
-        JavascriptExecutor executor = (JavascriptExecutor)driver;
-        String js = "$(\".uCenter-left .nav li:nth-child(2)\").hover(function(){ $(this).children(\".hidden\").toggle(); })";
-        executor.executeScript(js);
-
-//        ((JavascriptExecutor)driver).executeScript("alert(\"haha\")");
-//        driver.get(http://yjf.pccb.com//member/borrowin/index.html);
-
-        //homePage=loginService.login("13761677814","19901018ab+");
-        WebDriverUtil.sleep(3000);
-//        driver.findElement(By.linkText("退出")).click();
+        driver.findElement(By.linkText("退出")).click();
     }
     @AfterTest
     public void tearDown(){
-        //driver.quit();
+        driver.quit();
     }
 }
