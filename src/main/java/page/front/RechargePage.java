@@ -19,7 +19,8 @@ public class RechargePage {
         WebDriverUtil.maxWindow(driver);
         WebDriverUtil.getElement(driver, AccountCenterPageXpath.FUND_ACCOUNT_BUTTON1).click();
         WebDriverUtil.getElement(driver, RechargePageXpath.RECHARGE_BUTTON).click();
-
+        WebDriverUtil.sleep(1000);
+        accountCenterPage.switchToYjfPage(driver);
         //accountCenterPage.leftListClick(driver);
         //WebDriverUtil.getElement(driver, AccountCenterPageXpath.RECHARGE_BUTTON).click();
         WebDriverUtil.getElement(driver, RechargePageXpath.RECHARGE_AMOUNT_INPUT).sendKeys(amount);

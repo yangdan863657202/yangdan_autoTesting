@@ -24,4 +24,14 @@ public interface InvestPageXpath {
      * 投资确认页面“确认支付”按钮:-->xpath:按钮
      */
     String CONFIRM_PAY_BUTTON = "//*[@id=\"invest_sure\"]";
+
+    /**
+     * 易极付付款页面“支付密码”输入框:-->xpath:文本输入框
+     */
+    String PAYMENT_PASSWORD_INPUT = "//*[@id=\"SecurityComponentflexContent\"]";
+
+    /**
+     * 易极付付款页面“确认付款”按钮:-->xpath:按钮
+     */
+    String CONFIRM_PAYMENT_BUTTON = "//*[@id=\"btnSubmit\"]";
 }

@@ -30,11 +30,14 @@ public class SignTest {
     @Test
     public void signTest()throws PageElementNotException {
         homePage = new LoginPage().login(driver);
+        WebDriverUtil.sleep(1000);
+        homePage.getAccountCenterPage();
         signPage.sign(driver);
 
     }
     @AfterTest
     public void tearDown(){
-        driver.quit();
+
+        //driver.quit();
     }
 }

@@ -11,9 +11,11 @@ import xpath.front.SignPageXpath;
 public class SignPage {
 
     String cumulateSign,earnPoint;
-    private static Logger logger = Logger.getLogger(LoginPage.class);
+    private static Logger logger = Logger.getLogger(SignPage.class);
 
     public void sign(WebDriver driver){
+        WebDriverUtil.sleep(1000);
+        WebDriverUtil.maxWindow(driver);
         WebDriverUtil.getElement(driver, SignPageXpath.SIGN1_BUTTON).click();
         WebDriverUtil.getElement(driver, SignPageXpath.SIGN2_BUTTON).click();
         cumulateSign=WebDriverUtil.getElement(driver, SignPageXpath.CUMULATE_SIGN_INPUT).getText();

@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -28,7 +29,7 @@ public class WithdrawTest {
     @BeforeTest
     public void setUp() {
         //driver = WebDriverUtil.getWebDriver(BrowserType.CHROME);
-        driver=new ChromeDriver();
+        driver=new FirefoxDriver();
     }
     @Test
     public void withdrawTest()throws PageElementNotException {

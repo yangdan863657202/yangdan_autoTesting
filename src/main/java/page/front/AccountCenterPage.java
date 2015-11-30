@@ -130,5 +130,10 @@ public class AccountCenterPage {
         return infos;
     }
 
+    public void switchToYjfPage(WebDriver driver){
+        WebDriverUtil.sleep(1000);
+        driver.switchTo().window(driver.getWindowHandles().toArray(new String[0])[1]);
+
+    }
 
 }

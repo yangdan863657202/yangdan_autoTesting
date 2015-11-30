@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import util.WebDriverUtil;
 import xpath.front.InvestPageXpath;
+import xpath.front.WithdrawPageXpath;
 
 import java.util.List;
 
@@ -14,7 +15,8 @@ import java.util.List;
  * Created by yangdan
  */
 public class InvestPage {
-    private static Logger logger = Logger.getLogger(LoginPage.class);
+    private static Logger logger = Logger.getLogger(InvestPage.class);
+    AccountCenterPage accountCenterPage=new AccountCenterPage();
 
     public void immediateBuyingClick(WebDriver driver,String targetName){
         //首先得到所有tr的集合
@@ -26,7 +28,7 @@ public class InvestPage {
             List<WebElement> cols =  row.findElements(By.tagName("td"));
             for (WebElement col : cols) {
                 System.out.print(col.getText());//得到td里的文本
-                System.out.println(" ");
+                System.out.print(" ");
             }
             System.out.println();
 
@@ -39,7 +41,7 @@ public class InvestPage {
     }
 
     public void immediateInvestClick(WebDriver driver,String investAmount){
-        WebDriverUtil.sleep(1000);
+        WebDriverUtil.sleep(2000);
         WebDriverUtil.getElement(driver, InvestPageXpath.INVEST_AMOUNT_INPUT).clear();
         WebDriverUtil.getElement(driver,InvestPageXpath.INVEST_AMOUNT_INPUT).sendKeys(investAmount);
         WebDriverUtil.getElement(driver, InvestPageXpath.IMMEDIATE_INVEST_BUTTON).click();
@@ -48,6 +50,12 @@ public class InvestPage {
         WebDriverUtil.getElement(driver, InvestPageXpath.PIGGY_DEDUCT_INPUT).clear();
         WebDriverUtil.getElement(driver,InvestPageXpath.PIGGY_DEDUCT_INPUT).sendKeys("0");
         WebDriverUtil.getElement(driver, InvestPageXpath.CONFIRM_PAY_BUTTON).click();
+        WebDriverUtil.sleep(1000);
+        accountCenterPage.switchToYjfPage(driver);
+        WebDriverUtil.sleep(1000);
+        WebDriverUtil.getElement(driver, InvestPageXpath.PAYMENT_PASSWORD_INPUT).sendKeys("123abc");
+        WebDriverUtil.getElement(driver, InvestPageXpath.CONFIRM_PAYMENT_BUTTON).click();
+
 
     }
 
