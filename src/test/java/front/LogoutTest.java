@@ -1,7 +1,6 @@
 package front;
 
 import exception.PageElementNotException;
-import javafx.scene.control.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
