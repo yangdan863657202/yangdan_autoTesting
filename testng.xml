@@ -12,9 +12,9 @@
     </test>
     <test name="Test2" preserve-order="true">
         <classes>
-            <class name="front.RechargeTest">
+            <class name="front.LoginTest">
                 <methods>
-                    <include name="rechargeTest"/>
+                    <include name="loginTest"/>
                 </methods>
             </class>
         </classes>
