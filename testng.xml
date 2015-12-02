@@ -3,9 +3,9 @@
 <suite name="Suite" parallel="false">
     <test name="Test1" preserve-order="true">
         <classes>
-            <class name="front.RechargeTest">
+            <class name="front.SignTest">
                 <methods>
-                    <include name="rechargeTest"/>
+                    <include name="signTest"/>
                 </methods>
             </class>
         </classes>
