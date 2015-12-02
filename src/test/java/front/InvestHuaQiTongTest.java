@@ -27,7 +27,7 @@ public class InvestHuaQiTongTest {
         driver=new FirefoxDriver();
     }
     @Test
-    public void loginTest()throws PageElementNotException {
+    public void investHuaQiTongTest()throws PageElementNotException {
         homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
         homePage.getInvestPage();
@@ -37,7 +37,7 @@ public class InvestHuaQiTongTest {
         //investPage.immediateBuyingClick(driver, "Auto Testing 华企通勿投");
         //investPage.immediateBuyingClick(driver, "Auto Testing 华企通勿投");
         driver.get("http://yjf.pccb.com/Rent/detail/bid/5549");
-        investPage.immediateInvestClick(driver,Integer.toString(1));
+        investPage.immediateInvestClick(driver, Integer.toString(1));
     }
     @AfterTest
     public void tearDown(){
