@@ -44,13 +44,15 @@ public class InvestPage {
         WebDriverUtil.sleep(2000);
         WebDriverUtil.getElement(driver, InvestPageXpath.INVEST_AMOUNT_INPUT).clear();
         WebDriverUtil.getElement(driver,InvestPageXpath.INVEST_AMOUNT_INPUT).sendKeys(investAmount);
-        WebDriverUtil.getElement(driver, InvestPageXpath.IMMEDIATE_INVEST_BUTTON).click();
+        //WebDriverUtil.getElement(driver, InvestPageXpath.IMMEDIATE_INVEST_BUTTON).click();
+        driver.findElement(By.linkText("立即投资")).click();
+
         WebDriverUtil.sleep(2000);
         WebDriverUtil.maxWindow(driver);
         WebDriverUtil.getElement(driver, InvestPageXpath.PIGGY_DEDUCT_INPUT).clear();
         WebDriverUtil.getElement(driver,InvestPageXpath.PIGGY_DEDUCT_INPUT).sendKeys("0");
         WebDriverUtil.getElement(driver, InvestPageXpath.CONFIRM_PAY_BUTTON).click();
-        WebDriverUtil.sleep(1000);
+        WebDriverUtil.sleep(3000);
         accountCenterPage.switchToYjfPage(driver);
         WebDriverUtil.sleep(1000);
         WebDriverUtil.getElement(driver, InvestPageXpath.PAYMENT_PASSWORD_INPUT).sendKeys("123abc");

@@ -17,7 +17,9 @@ public class WithdrawPage {
     public void withdraw(WebDriver driver, String amount){
         WebDriverUtil.maxWindow(driver);
         WebDriverUtil.getElement(driver, AccountCenterPageXpath.FUND_ACCOUNT_BUTTON1).click();
+        WebDriverUtil.sleep(1000);
         WebDriverUtil.getElement(driver, WithdrawPageXpath.WITHDRAW_BUTTON).click();
+        WebDriverUtil.sleep(1000);
         WebDriverUtil.getElement(driver, WithdrawPageXpath.WITHDRAW_AMOUNT_INPUT).sendKeys(amount);
         WebDriverUtil.getElement(driver, WithdrawPageXpath.WITHDRAW_BUTTON1).click();
         WebDriverUtil.sleep(1000);

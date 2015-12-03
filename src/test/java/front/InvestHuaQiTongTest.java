@@ -25,6 +25,7 @@ public class InvestHuaQiTongTest {
     public void setUp() {
         //driver = WebDriverUtil.getWebDriver(BrowserType.CHROME);
         driver=new FirefoxDriver();
+//        driver.manage().window().maximize();
     }
     @Test
     public void investHuaQiTongTest()throws PageElementNotException {
@@ -36,7 +37,7 @@ public class InvestHuaQiTongTest {
         WebDriverUtil.maxWindow(driver);
         //investPage.immediateBuyingClick(driver, "Auto Testing 华企通勿投");
         //investPage.immediateBuyingClick(driver, "Auto Testing 华企通勿投");
-        driver.get("http://yjf.pccb.com/Rent/detail/bid/5549");
+        driver.get("http://yjf3.pccb.com/Rent/detail/bid/5554");
         investPage.immediateInvestClick(driver, Integer.toString(1));
     }
     @AfterTest
