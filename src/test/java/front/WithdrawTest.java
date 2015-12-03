@@ -36,7 +36,7 @@ public class WithdrawTest {
         homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
         homePage.getAccountCenterPage();
-
+//
 //        WebElement invot = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/ul/li[2]/a"));
 //        Actions ac = new Actions(driver);
 //        ac.moveToElement(invot).perform();
