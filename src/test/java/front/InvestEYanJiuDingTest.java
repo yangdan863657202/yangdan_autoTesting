@@ -25,14 +25,16 @@ public class InvestEYanJiuDingTest {
         driver=new ChromeDriver();
     }
     @Test
-    public void loginTest()throws PageElementNotException {
+    public void investEYanJiuDingTest()throws PageElementNotException {
         homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
         homePage.getInvestPage();
-        investPage.setScroll(driver,500);
-
-        investPage.immediateBuyingClick(driver, "Auto Testing E言九鼎勿投");
-        investPage.immediateInvestClick(driver,Integer.toString(10000));
+        WebDriverUtil.sleep(2000);
+        investPage.setScrollToElement(driver, "/html/body/div[4]/div/div/div/div[2]/ul/li[1]");
+        WebDriverUtil.maxWindow(driver);
+        //investPage.immediateBuyingClick(driver, "Auto Testing 华企通勿投");
+        driver.get("http://yjf3.pccb.com/Rent/detail/bid/5552");
+        investPage.immediateInvestClick2(driver, Integer.toString(1));
     }
     @AfterTest
     public void tearDown(){
