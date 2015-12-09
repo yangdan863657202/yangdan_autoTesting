@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="tests" thread-count="2">
     <test name="Test1" preserve-order="true">
         <classes>
-            <class name="front.RechargeTest">
+            <class name="front.RechargeTest1">
                 <methods>
                     <include name="rechargeTest"/>
                 </methods>
