@@ -1,6 +1,7 @@
 package page.front;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import page.PageObject;
 import util.WebDriverUtil;
 import org.apache.log4j.Logger;
@@ -105,6 +106,12 @@ public class LoginPage {
 		}
 		return null;
 
+	}
+
+	public void loginMessage(WebDriver driver,String message1){
+		WebDriverUtil.sleep(1000);
+		String message2=WebDriverUtil.getElement(driver,LoginPageXpath.LOGIN_MESSAGE_TEXT).getText();
+		Assert.assertEquals(message1,message2);
 	}
 }
 

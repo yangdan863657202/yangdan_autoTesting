@@ -8,6 +8,10 @@ package xpath.front;
  */
 public interface LoginPageXpath {
 	/**
+	 * 登录提示信息xpath
+	 */
+	String LOGIN_MESSAGE_TEXT = "//*[@id=\"new-logo\"]/div/div[2]/div/div[1]/form/div";
+	/**
 	 * 用户名xpath
 	 */
 	String USERNAME_INPUT = "//*[@id=\"new-logo\"]/div/div[2]/div/div[1]/form/ul/li[1]/div[2]/input";//TODO
