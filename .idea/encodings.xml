@@ -14,6 +14,7 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/webdriver-url.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/TestDemo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/front/LogoutTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/pccbInterface/InvestTest.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

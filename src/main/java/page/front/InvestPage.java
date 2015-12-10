@@ -40,7 +40,7 @@ public class InvestPage {
         }
     }
 
-    public void immediateInvestClick(WebDriver driver,String investAmount){
+    public void immediateInvestClick(WebDriver driver,String investAmount,String paymentPassword){
         WebDriverUtil.sleep(2000);
         WebDriverUtil.getElement(driver, InvestPageXpath.INVEST_AMOUNT_INPUT).clear();
         WebDriverUtil.getElement(driver,InvestPageXpath.INVEST_AMOUNT_INPUT).sendKeys(investAmount);
@@ -55,12 +55,12 @@ public class InvestPage {
         WebDriverUtil.sleep(3000);
         accountCenterPage.switchToYjfPage(driver);
         WebDriverUtil.sleep(1000);
-        WebDriverUtil.getElement(driver, InvestPageXpath.PAYMENT_PASSWORD_INPUT).sendKeys("123abc");
+        WebDriverUtil.getElement(driver, InvestPageXpath.PAYMENT_PASSWORD_INPUT).sendKeys(paymentPassword);
         WebDriverUtil.getElement(driver, InvestPageXpath.CONFIRM_PAYMENT_BUTTON).click();
 
     }
 
-    public void immediateInvestClick2(WebDriver driver,String investAmount){
+    public void immediateInvestClick2(WebDriver driver,String investAmount,String paymentPassword){
         WebDriverUtil.sleep(2000);
         WebDriverUtil.getElement(driver, InvestPageXpath.INVEST_AMOUNT_INPUT).clear();
         WebDriverUtil.getElement(driver,InvestPageXpath.INVEST_AMOUNT_INPUT).sendKeys(investAmount);
@@ -73,7 +73,7 @@ public class InvestPage {
         WebDriverUtil.sleep(3000);
         accountCenterPage.switchToYjfPage(driver);
         WebDriverUtil.sleep(1000);
-        WebDriverUtil.getElement(driver, InvestPageXpath.PAYMENT_PASSWORD_INPUT).sendKeys("123abc");
+        WebDriverUtil.getElement(driver, InvestPageXpath.PAYMENT_PASSWORD_INPUT).sendKeys(paymentPassword);
         WebDriverUtil.getElement(driver, InvestPageXpath.CONFIRM_PAYMENT_BUTTON).click();
 
     }

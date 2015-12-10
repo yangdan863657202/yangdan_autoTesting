@@ -12,11 +12,12 @@ import page.front.HomePage;
 import page.front.InvestPage;
 import page.front.LoginPage;
 import util.WebDriverUtil;
+import xpath.front.InvestPageXpath;
 
 /**
  * Created by yangdan
  */
-public class InvestHuaQiTongTest {
+public class InvestHuaQiTongTest3 {
     private WebDriver driver;
     HomePage homePage=new HomePage();
     InvestPage investPage=new InvestPage();
@@ -36,7 +37,18 @@ public class InvestHuaQiTongTest {
         WebDriverUtil.maxWindow(driver);
         //investPage.immediateBuyingClick(driver, "Auto Testing 华企通勿投");
         driver.get("http://yjf3.pccb.com/Rent/detail/bid/5554");
-        investPage.immediateInvestClick(driver, Integer.toString(1));
+        //investPage.immediateInvestClick(driver, Integer.toString(1));
+        WebDriverUtil.sleep(2000);
+        WebDriverUtil.getElement(driver, InvestPageXpath.INVEST_AMOUNT_INPUT).clear();
+        WebDriverUtil.getElement(driver,InvestPageXpath.INVEST_AMOUNT_INPUT).sendKeys(Integer.toString(100));
+        //WebDriverUtil.getElement(driver, InvestPageXpath.IMMEDIATE_INVEST_BUTTON).click();
+        driver.findElement(By.linkText("立即投资")).click();
+
+        WebDriverUtil.sleep(2000);
+        WebDriverUtil.maxWindow(driver);
+        WebDriverUtil.getElement(driver, InvestPageXpath.PIGGY_DEDUCT_INPUT).clear();
+        WebDriverUtil.getElement(driver,InvestPageXpath.PIGGY_DEDUCT_INPUT).sendKeys("0");
+        WebDriverUtil.getElement(driver, InvestPageXpath.CONFIRM_PAY_BUTTON).click();
     }
     @AfterTest
     public void tearDown(){
