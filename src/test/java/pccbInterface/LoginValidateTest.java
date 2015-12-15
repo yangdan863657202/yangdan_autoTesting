@@ -31,8 +31,9 @@ public class LoginValidateTest {
             list.add(new BasicNameValuePair("userphone", Des.encryptDES("13817506005")));
             list.add(new BasicNameValuePair("password", Des.encryptDES("123456")));
             list.add(new BasicNameValuePair("sign_key", Md5.md5("13817506005" + "123456" + "pccbNewLoginValidate")));
-            System.out.println("-----" + Md5.md5("82044" + "pccbUserCheckIn") + "-----");
-            System.out.println("-----" + Des.encryptDES("82044") + "-----");
+            System.out.println("-----" + Md5.md5("13817506005" + "123456" + "pccbNewLoginValidate") + "-----");
+            System.out.println("-----" + Des.encryptDES("13817506005") + "-----");
+            System.out.println("-----" + Des.encryptDES("123456") + "-----");
             post.setEntity(new UrlEncodedFormEntity(list));
             CloseableHttpResponse response = httpclient.execute(post);
 
