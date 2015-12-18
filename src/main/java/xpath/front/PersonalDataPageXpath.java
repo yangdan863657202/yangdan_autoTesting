@@ -7,7 +7,7 @@ public interface PersonalDataPageXpath {
     /**
      * 个人资料页面“性别”选择框:-->xpath:选择框
      */
-    String GENDER_SELECT = "";
+    String GENDER_SELECT = "//*[@id=\"member_info\"]/div[1]/select";
 
     /**
      * 个人资料页面“出生地”输入框:-->xpath:文本输入框
@@ -22,7 +22,7 @@ public interface PersonalDataPageXpath {
     /**
      * 个人资料页面“学历”选择框:-->xpath:选择框
      */
-    String EDUCATION_SELECT = "";
+    String EDUCATION_SELECT = "//*[@id=\"member_info\"]/div[4]/select";
 
     /**
      * 个人资料页面“公司”输入框:-->xpath:文本输入框

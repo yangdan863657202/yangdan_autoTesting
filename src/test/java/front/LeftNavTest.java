@@ -50,9 +50,6 @@ public class LeftNavTest {
 //        WebDriverUtil.sleep(1000);
 //        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/ul/li[2]/div/a[2]")).click();
 
-        //homePage=loginService.login("13761677814","19901018ab+");
-        WebDriverUtil.sleep(3000);
-//        driver.findElement(By.linkText("退出")).click();
     }
     @AfterTest
     public void tearDown(){

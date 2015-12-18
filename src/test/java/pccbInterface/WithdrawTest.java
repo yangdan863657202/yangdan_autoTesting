@@ -12,17 +12,41 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.AssertJUnit;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import page.front.HomePage;
+import service.front.GetTokenService;
+import service.front.ReturnUrlService;
 import util.Des;
 import util.Md5;
+import util.WebDriverUtil;
 
 /**
  * Created by yangdan
  */
 public class WithdrawTest {
+    private WebDriver driver;
+    HomePage homePage=new HomePage();
+
+    @BeforeTest
+    public void setUp() {
+        //driver = WebDriverUtil.getWebDriver(BrowserType.CHROME);
+        driver=new ChromeDriver();
+    }
     @Test
-    public static void withdrawTest() throws Exception {
+    public  void withdrawTest() throws Exception {
+        driver.get(ReturnUrlService.returnUrlService());
+        driver.findElement(By.xpath("//*[@id=\"payPassword\"]")).sendKeys("123abc");
+        driver.findElement(By.xpath("//*[@id=\"btnSubmit\"]")).click();
+        WebDriverUtil.sleep(2000);
+        String s=driver.getCurrentUrl();
+        System.out.println(s);
+
+        String token= GetTokenService.getTokenService(s);
         CloseableHttpClient httpclient = HttpClients.createDefault();
         try {
             HttpPost post = new HttpPost("http://yjf3.pccb.com/api/mobile/withdraw");
@@ -31,8 +55,8 @@ public class WithdrawTest {
             list.add(new BasicNameValuePair("money","100"));
             list.add(new BasicNameValuePair("delay","0"));
             list.add(new BasicNameValuePair("userid", Des.encryptDES("82044")));
-            list.add(new BasicNameValuePair("pay_token", Des.encryptDES("")));
-            list.add(new BasicNameValuePair("sign_key", Md5.md5("1" + "82044"+""+"pccbYjfUserWithdraw" )));
+            list.add(new BasicNameValuePair("pay_token", Des.encryptDES(token)));
+            list.add(new BasicNameValuePair("sign_key", Md5.md5("1" + "82044"+token+"pccbYjfUserWithdraw" )));
             System.out.println("-----" + Md5.md5("82044" + "pccbUserCheckIn") + "-----");
             System.out.println("-----" + Des.encryptDES("82044") + "-----");
             post.setEntity(new UrlEncodedFormEntity(list));

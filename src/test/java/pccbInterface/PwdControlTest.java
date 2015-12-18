@@ -12,52 +12,26 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.alibaba.fastjson.JSONObject;
 import org.testng.AssertJUnit;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import page.front.HomePage;
-import service.front.GetTokenService;
-import service.front.ReturnUrlService;
 import util.Des;
 import util.Md5;
-import util.WebDriverUtil;
 
 /**
  * Created by yangdan
  */
-public class DepositeTest {
-    private WebDriver driver;
-    HomePage homePage=new HomePage();
-
-    @BeforeTest
-    public void setUp() {
-        //driver = WebDriverUtil.getWebDriver(BrowserType.CHROME);
-        driver=new ChromeDriver();
-    }
+public class PwdControlTest {
     @Test
-    public void depositeTest() throws Exception {
-
-        driver.get(ReturnUrlService.returnUrlService());
-        driver.findElement(By.xpath("//*[@id=\"payPassword\"]")).sendKeys("123abc");
-        driver.findElement(By.xpath("//*[@id=\"btnSubmit\"]")).click();
-        WebDriverUtil.sleep(2000);
-        String s=driver.getCurrentUrl();
-        System.out.println(s);
-
-        String token= GetTokenService.getTokenService(s);
-
+    public static void pwdControlTest() throws Exception {
         CloseableHttpClient httpclient = HttpClients.createDefault();
+
         try {
-            HttpPost post = new HttpPost("http://yjf3.pccb.com/api/mobile/deposite");
+            HttpPost post = new HttpPost("http://yjf3.pccb.com/api/mobile/pwd_control");
             List<NameValuePair> list = new ArrayList<NameValuePair>();
             list.add(new BasicNameValuePair("app_type","1"));
-            list.add(new BasicNameValuePair("money","1000"));
             list.add(new BasicNameValuePair("userid", Des.encryptDES("82044")));
-            list.add(new BasicNameValuePair("pay_token", Des.encryptDES(token)));
-            list.add(new BasicNameValuePair("sign_key", Md5.md5("1" + "82044"+token+"pccbYjfUserDeposite" )));
+            list.add(new BasicNameValuePair("sign_key", Md5.md5("1" + "82044"+""+"pccbYjfUserPwdControl" )));
             System.out.println("-----" + Md5.md5("82044" + "pccbUserCheckIn") + "-----");
             System.out.println("-----" + Des.encryptDES("82044") + "-----");
             post.setEntity(new UrlEncodedFormEntity(list));
@@ -65,8 +39,45 @@ public class DepositeTest {
 
             try {
                 System.out.println(response.getStatusLine());
+                System.out.println(response.getEntity());
                 HttpEntity entity2 = response.getEntity();
                 String entity = EntityUtils.toString(entity2);
+
+                JSONObject object = JSONObject.parseObject(entity);
+                String url=object.getString("url").toString();
+                System.out.println(url);
+
+
+
+                String str2 = "http://ezmoney.yijifu.net/userptk/return_password_dialog?isSuccess=truepayt&k=TK1512171916fvx3ec992bdc20b1ffba4f7514ecf6891d2f4abfde7f4a04738a&_t=1450343594539";
+
+                String[] tempArrStr = str2.split("\\?");
+
+                String url1 = tempArrStr[0];
+
+                String[] tempArrStr2 = tempArrStr[1].split("&");
+
+                for(String tempStr : tempArrStr2){
+
+                    System.out.println(tempStr);
+                }
+
+                System.out.println(tempArrStr2[1].split("=")[1]);
+
+
+//                JSONObject jsonObject = new JSONObject(entity);
+//                url = jsonObject.getJSONObject("url");
+                /**把json字符串转换成json对象**/
+
+
+                /**
+                 * jsonObject.getString("code") 取出code
+                 * 比如这里返回的json 字符串为 [code:0,msg:"ok",data:[list:{"name":1},{"name":2}]]
+                 * **/
+
+                /**得到url这个key**/
+
+
                 if(entity.contains("")){
                     System.out.println("Success!");
                     System.out.println("response content:" + entity);
@@ -85,6 +96,7 @@ public class DepositeTest {
             httpclient.close();
 
         }
+        //return(url);
 
     }
 }
