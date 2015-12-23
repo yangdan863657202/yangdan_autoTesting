@@ -49,7 +49,7 @@ public class SetPersonalDataTest {
     @AfterTest
     public void tearDown(){
 
-        //driver.quit();
+        driver.quit();
     }
 
 }

@@ -53,6 +53,6 @@ public class LeftNavTest {
     }
     @AfterTest
     public void tearDown(){
-        //driver.quit();
+        driver.quit();
     }
 }

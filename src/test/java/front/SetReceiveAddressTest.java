@@ -50,6 +50,6 @@ public class SetReceiveAddressTest {
     @AfterTest
     public void tearDown(){
 
-        //driver.quit();
+        driver.quit();
     }
 }

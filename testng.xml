@@ -1,30 +1,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite" parallel="tests" thread-count="2">
-    <test name="Test1" preserve-order="true">
-        <classes>
-            <class name="front.RechargeTest1">
-                <methods>
-                    <include name="rechargeTest"/>
-                </methods>
-            </class>
-        </classes>
+<suite name="PCCB_Suite" parallel="classes" thread-count="5">
+    <test name="UI自动化" preserve-order="true">
+        <packages>
+            <package name="front" />  <!-- 执行front包下的所有测试用例文件 -->
+        </packages>
     </test>
-    <test name="Test2" preserve-order="true">
-        <classes>
-            <class name="front.LogoutTest">
-                <methods>
-                    <include name="logoutTest"/>
-                </methods>
-            </class>
-        </classes>
+    <test name="Interface自动化" preserve-order="true">
+        <packages>
+            <package name="pccbInterface" />  <!-- 执行pccbInterface包下的所有测试用例文件 -->
+        </packages>
     </test>
 
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-
     </listeners>
-
 
 </suite>

@@ -35,7 +35,7 @@ public class RechargeTest2 {
     }
     @AfterTest
     public void tearDown(){
-        //driver.quit();
+        driver.quit();
     }
 }
 

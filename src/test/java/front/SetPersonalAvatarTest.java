@@ -52,7 +52,7 @@ public class SetPersonalAvatarTest {
     @AfterTest
     public void tearDown(){
 
-        //driver.quit();
+        driver.quit();
     }
 
 }

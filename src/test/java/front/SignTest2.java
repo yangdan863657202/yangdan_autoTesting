@@ -39,6 +39,6 @@ public class SignTest2 {
     @AfterTest
     public void tearDown(){
 
-        //driver.quit();
+        driver.quit();
     }
 }

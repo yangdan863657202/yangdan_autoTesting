@@ -17,6 +17,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.AssertJUnit;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import page.front.HomePage;
@@ -85,5 +86,10 @@ public class InvestTest {
                 httpclient.close();
 
             }
+    }
+    @AfterTest
+    public void tearDown(){
+
+        driver.quit();
     }
 }

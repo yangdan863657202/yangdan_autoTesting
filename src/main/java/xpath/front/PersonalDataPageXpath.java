@@ -43,4 +43,9 @@ public interface PersonalDataPageXpath {
      * 个人资料页面“年收入”输入框:-->xpath:文本输入框
      */
     String ANNAL_INCOME_INPUT = "//*[@id=\"member_info\"]/div[8]/input";
+
+    /**
+     * 个人资料页面“提交”按钮:-->xpath:按钮
+     */
+    String SUBMIT_BUTTON = "//*[@id=\"member_info\"]/div[9]/input";
 }

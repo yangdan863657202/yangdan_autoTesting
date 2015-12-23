@@ -65,6 +65,6 @@ public class GetFundDetailTest {
     @AfterTest
     public void tearDown(){
 
-        //driver.quit();
+        driver.quit();
     }
 }

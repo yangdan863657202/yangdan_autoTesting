@@ -3,6 +3,7 @@ package page.front;
 import exception.PageElementNotException;
 import org.openqa.selenium.WebDriver;
 import page.PageObject;
+import service.front.SetSelectValueService;
 import util.WebDriverUtil;
 import xpath.front.LoginPageXpath;
 import xpath.front.PersonalDataPageXpath;
@@ -14,14 +15,16 @@ public class PersonalDataPage extends PageObject {
 
     public void setPersonalData(WebDriver driver)throws PageElementNotException {
         WebDriverUtil.sleep(1000);
-        this.inputText(driver, PersonalDataPageXpath.GENDER_SELECT, "性别", "女性");
+        SetSelectValueService.setSelectValue(driver, PersonalDataPageXpath.GENDER_SELECT, "女性");
+        //this.inputText(driver, PersonalDataPageXpath.GENDER_SELECT, "性别", "女性");
         WebDriverUtil.getElement(driver, PersonalDataPageXpath.BIRTH_PLACE_INPUT).clear();
         WebDriverUtil.getElement(driver, PersonalDataPageXpath.BIRTH_PLACE_INPUT).sendKeys("中国");
 
         WebDriverUtil.getElement(driver, PersonalDataPageXpath.GRADUATE_SCHOOL_INPUT).clear();
         WebDriverUtil.getElement(driver, PersonalDataPageXpath.GRADUATE_SCHOOL_INPUT).sendKeys("上海");
 
-        this.inputText(driver, PersonalDataPageXpath.EDUCATION_SELECT, "学历", "本科");
+        SetSelectValueService.setSelectValue(driver, PersonalDataPageXpath.EDUCATION_SELECT, "本科");
+        //this.inputText(driver, PersonalDataPageXpath.EDUCATION_SELECT, "学历", "本科");
 
         WebDriverUtil.getElement(driver, PersonalDataPageXpath.COMPANY_INPUT).clear();
         WebDriverUtil.getElement(driver, PersonalDataPageXpath.COMPANY_INPUT).sendKeys("普资金融");
@@ -34,5 +37,7 @@ public class PersonalDataPage extends PageObject {
 
         WebDriverUtil.getElement(driver, PersonalDataPageXpath.ANNAL_INCOME_INPUT).clear();
         WebDriverUtil.getElement(driver, PersonalDataPageXpath.ANNAL_INCOME_INPUT).sendKeys("10000");
+
+        WebDriverUtil.getElement(driver, PersonalDataPageXpath.SUBMIT_BUTTON).click();
     }
 }
