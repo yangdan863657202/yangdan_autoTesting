@@ -1,6 +1,7 @@
 package front;
 
 import exception.PageElementNotException;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -38,15 +39,32 @@ public class SetPersonalAvatarTest {
         WebElement invot = driver.findElement(By.xpath("/html/body/div[2]/div[1]/ul/li[4]/a"));
         Actions ac = new Actions(driver);
         ac.moveToElement(invot).perform();
-        WebDriverUtil.sleep(1000);
+        WebDriverUtil.wait(driver, "/html/body/div[2]/div[1]/ul/li[4]/div/a[3]");
         driver.findElement(By.xpath("/html/body/div[2]/div[1]/ul/li[4]/div/a[3]")).click();
 
         WebDriverUtil.sleep(1000);
         //WebDriverUtil.getElement(driver, "//*[@id=\"select\"]/div[1]").click();
-        WebDriverUtil.getElement(driver,"//*[@id=\"rt_rt_1a6kuu419cid1j4514ra12ug6ve1\"]/input").clear();
-        WebDriverUtil.getElement(driver,"//*[@id=\"rt_rt_1a6kuu419cid1j4514ra12ug6ve1\"]/input").sendKeys("http://res.pccb.com/Temp/20151216/Uploads/headimg/1450255270302.png");
+        //WebDriverUtil.getElement(driver,"//*[@id=\"rt_rt_1a6kuu419cid1j4514ra12ug6ve1\"]/input").clear();
+        WebDriverUtil.getElement(driver,"//input[@type='file']").sendKeys("C:\\Users\\Administrator\\Desktop\\1.png");
         WebDriverUtil.sleep(1000);
         WebDriverUtil.getElement(driver, "//*[@id=\"save\"]").click();
+        int time = 200;
+        while (true) {
+
+            if (WebDriverUtil.isAlertExist(driver)){
+                break;
+            } else {
+                time += 100;
+                WebDriverUtil.sleep(time);
+                if (time >= 6000) {
+                    break;
+                }
+            }
+        }
+
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+
 
     }
     @AfterTest

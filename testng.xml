@@ -1,17 +1,112 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="PCCB_Suite" parallel="classes" thread-count="5">
-    <test name="UI自动化" preserve-order="true">
-        <packages>
-            <package name="front" />  <!-- 执行front包下的所有测试用例文件 -->
-        </packages>
+<suite name="PCCB_Suite" parallel="tests" thread-count="2">
+    <test name="SetPersonalAvatarTest" preserve-order="true">
+        <classes>
+            <class name="front.SetPersonalAvatarTest">
+            </class>
+        </classes>
     </test>
-    <test name="Interface自动化" preserve-order="true">
-        <packages>
-            <package name="pccbInterface" />  <!-- 执行pccbInterface包下的所有测试用例文件 -->
+    <test name="SetPersonalDataTest" preserve-order="true">
+        <classes>
+            <class name="front.SetPersonalDataTest">
+            </class>
+        </classes>
+    </test>
+    <test name="SetReceiveAddressTest" preserve-order="true">
+        <classes>
+            <class name="front.SetReceiveAddressTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="GetFundDetailTest" preserve-order="true">
+        <classes>
+            <class name="front.GetFundDetailTest">
+            </class>
+        </classes>
+    </test>
+    <test name="SignTest1" preserve-order="true">
+        <classes>
+            <class name="front.SignTest1">
+            </class>
+        </classes>
+    </test>
+    <test name="SignTest2" preserve-order="true">
+        <classes>
+            <class name="front.SignTest2">
+            </class>
+        </classes>
+    </test>
+    <test name="RechargeTest1" preserve-order="true">
+        <classes>
+            <class name="front.RechargeTest1">
+            </class>
+        </classes>
+    </test>
+    <test name="RechargeTest2" preserve-order="true">
+        <classes>
+            <class name="front.RechargeTest2">
+            </class>
+        </classes>
+    </test>
+    <test name="RechargeTest3" preserve-order="true">
+        <classes>
+            <class name="front.RechargeTest3">
+            </class>
+        </classes>
+    </test>
+    <test name="LoginTest1" preserve-order="true">
+        <classes>
+            <class name="front.LoginTest1">
+            </class>
+        </classes>
+    </test>
+    <test name="LoginTest2" preserve-order="true">
+        <classes>
+            <class name="front.LoginTest2">
+            </class>
+        </classes>
+    </test>
+    <test name="LoginTest3" preserve-order="true">
+        <classes>
+            <class name="front.LoginTest3">
+            </class>
+        </classes>
+    </test>
+    <test name="LoginTest4" preserve-order="true">
+        <classes>
+            <class name="front.LoginTest4">
+            </class>
+        </classes>
+    </test>
+    <test name="LeftNavTest" preserve-order="true">
+        <classes>
+            <class name="front.LeftNavTest">
+            </class>
+        </classes>
+    </test>
+    <test name="LogoutTest" preserve-order="true">
+        <classes>
+            <class name="front.LogoutTest">
+            </class>
+        </classes>
+    </test>
+
+    <!--
+  <test name="UI自动化" preserve-order="true">
+      <packages>
+          <package name="front" />   执行front包下的所有测试用例文件
         </packages>
     </test>
 
+    <test name="Interface自动化" preserve-order="true">
+        <packages>
+            <package name="pccbInterface" />   执行pccbInterface包下的所有测试用例文件
+            <suite name="PCCB_Suite" parallel="false" thread-count="2">
+        </packages>
+    </test>
+        -->
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>

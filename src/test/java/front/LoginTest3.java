@@ -26,7 +26,7 @@ public class LoginTest3 {
     }
     @Test
     public void loginTest()throws PageElementNotException {
-        homePage = new LoginPage().login(driver,"13817506","123456");
+        homePage = new LoginPage().login(driver,"13817506","12345");
         loginPage.loginMessage(driver,"用户名或密码错误");
     }
     @AfterTest

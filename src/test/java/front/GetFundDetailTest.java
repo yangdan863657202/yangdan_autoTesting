@@ -34,14 +34,18 @@ public class GetFundDetailTest {
     }
     @Test
     public void signTest()throws PageElementNotException {
-        homePage = new LoginPage().login(driver,"13817527498","123456a.");
+        homePage = new LoginPage().login(driver,"13817506005","123456");
+        WebDriverUtil.sleep(1000);
+        homePage.getAccountCenterPage();
+
+        WebDriverUtil.sleep(2000);
         WebDriverUtil.wait(driver, "/html/body/div[3]/div[1]/div/ul/li[3]/a");
 
         WebElement invot = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/ul/li[3]/a"));
         Actions ac = new Actions(driver);
         ac.moveToElement(invot).perform();
         //WebDriverUtil.wait(driver, "/html/body/div[3]/div[1]/div/ul/li[3]/div/a[3]");
-        WebDriverUtil.sleep(1500);
+        WebDriverUtil.wait(driver, "/html/body/div[3]/div[1]/div/ul/li[3]/div/a[3]");
         driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/ul/li[3]/div/a[3]")).click();
 
         WebDriverUtil.sleep(2000);
