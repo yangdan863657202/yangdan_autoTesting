@@ -35,7 +35,7 @@ public class WithdrawTest3 {
         homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
         homePage.getAccountCenterPage();
-        withdrawPage.withdraw(driver,Integer.toString(1000));
+        withdrawPage.withdraw1(driver,Integer.toString(0));
     }
     @AfterTest
     public void tearDown(){

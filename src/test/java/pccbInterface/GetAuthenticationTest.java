@@ -24,6 +24,7 @@ public class GetAuthenticationTest {
     @Test
     public static void getAuthenticationTest() throws Exception {
         CloseableHttpClient httpclient = HttpClients.createDefault();
+        //String[] a = new String[]{"asda","asdfafs"};
         try {
             HttpPost post = new HttpPost("http://api.pccb.com/apitest/get_authentication/");
             List<NameValuePair> list = new ArrayList<NameValuePair>();

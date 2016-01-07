@@ -2,24 +2,28 @@ package front;
 
 import exception.PageElementNotException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import page.front.HomePage;
-import page.front.InvestPage;
 import page.front.LoginPage;
+import page.front.RechargePage;
+import page.front.WithdrawPage;
 import util.WebDriverUtil;
 
 /**
  * Created by yangdan
  */
-public class InvestHuaQiTongTest1 {
+public class WithdrawTest4 {
     private WebDriver driver;
     HomePage homePage=new HomePage();
-    InvestPage investPage=new InvestPage();
+    WithdrawPage withdrawPage=new WithdrawPage();
 
     @BeforeTest
     public void setUp() {
@@ -27,19 +31,14 @@ public class InvestHuaQiTongTest1 {
         driver=new FirefoxDriver();
     }
     @Test
-    public void investHuaQiTongTest()throws PageElementNotException {
+    public void withdrawTest()throws PageElementNotException {
         homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
-        homePage.getInvestPage();
-        WebDriverUtil.sleep(2000);
-        investPage.setScrollToElement(driver, "/html/body/div[4]/div/div/div/div[2]/ul/li[1]");
-        WebDriverUtil.maxWindow(driver);
-        //investPage.immediateBuyingClick(driver, "Auto Testing 华企通勿投");
-        driver.get("http://yjf3.pccb.com/Rent/detail/bid/5554");
-        investPage.immediateInvestClick(driver, Integer.toString(1),"1234abc");
+        homePage.getAccountCenterPage();
+        withdrawPage.withdraw2(driver,Integer.toString(10000000));
     }
     @AfterTest
     public void tearDown(){
-        driver.quit();
+        //driver.quit();
     }
 }

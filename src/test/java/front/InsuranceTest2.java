@@ -1,37 +1,33 @@
 package front;
-
 import exception.PageElementNotException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import page.front.HomePage;
 import page.front.LoginPage;
-import page.front.RechargePage;
 import util.WebDriverUtil;
 
 /**
- * Created by yangdan
+ * Created by Yangdan
  */
-public class RechargeTest1 {
+public class InsuranceTest2 {
     private WebDriver driver;
     HomePage homePage=new HomePage();
-    RechargePage rechargePage=new RechargePage();
 
     @BeforeTest
     public void setUp() {
-        //driver = WebDriverUtil.getWebDriver(BrowserType.CHROME);
-        driver=new FirefoxDriver();
+        driver=new ChromeDriver();
     }
     @Test
-    public void rechargeTest()throws PageElementNotException {
-        homePage = new LoginPage().login(driver);
+    public void insuranceTest2()throws PageElementNotException {
+        driver.get("http://yjf3.pccb.com/");
         WebDriverUtil.sleep(1000);
-        homePage.getAccountCenterPage();
-        rechargePage.recharge(driver, String.valueOf(0.5));
-
+        WebDriverUtil.getElement(driver,"/html/body/div[3]/div/div[2]/ul/li[5]/a").click();
+        WebDriverUtil.sleep(1000);
+        WebDriverUtil.getElement(driver, "/html/body/div[3]/div/div[2]/ul/li[5]/div/div/div/a[2]").click();
     }
     @AfterTest
     public void tearDown(){
