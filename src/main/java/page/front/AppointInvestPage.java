@@ -17,16 +17,17 @@ public class AppointInvestPage {
     public void appointInvestPage(WebDriver driver,String targetName){
         WebDriverUtil.sleep(2000);
         WebDriverUtil.maxWindow(driver);
-        WebElement invot = driver.findElement(By.xpath("/html/body/div[2]/div[1]/ul/li[2]/a"));
-        Actions ac = new Actions(driver);
-        ac.moveToElement(invot).perform();
-        //WebDriverUtil.sleep(2000);
-        WebDriverUtil.wait(driver, "/html/body/div[2]/div[1]/ul/li[2]/div/a[1]");
-        driver.findElement(By.xpath("/html/body/div[2]/div[1]/ul/li[2]/div/a[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"container\"]/div[3]/div[1]/div[1]/ul/li[2]/a")).click();
+//        WebElement invot = driver.findElement(By.xpath("/html/body/div[2]/div[1]/ul/li[2]/a"));
+//        Actions ac = new Actions(driver);
+//        ac.moveToElement(invot).perform();
+//        //WebDriverUtil.sleep(2000);
+//        WebDriverUtil.wait(driver, "/html/body/div[2]/div[1]/ul/li[2]/div/a[1]");
+//        driver.findElement(By.xpath("/html/body/div[2]/div[1]/ul/li[2]/div/a[1]")).click();
 
         WebDriverUtil.sleep(1000);
         //首先得到所有tr的集合
-        List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"container\"]/div[2]/div[2]/div/table"));
+        List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"container\"]/div[2]/div[2]/div/table/tbody"));
         System.out.println(rows.size());
         for (WebElement row : rows) {
             //得到当前tr里td的集合
@@ -35,11 +36,14 @@ public class AppointInvestPage {
             for (WebElement col : cols) {
                 System.out.print(col.getText());//得到td里的文本
                 System.out.print(" ");
-            }
-            System.out.println();
 
-            if(targetName.equals(cols.get(0).getText())){
-                cols.get(7).click();
+            }
+            System.out.println("");
+            System.out.println("11111111"+cols.get(20).getText());
+            for(int i=0;i<=34;i++) {
+                if (targetName.equals(cols.get(i).getText())) {
+                    cols.get(i+7).click();
+                }
             }
         }
 

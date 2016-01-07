@@ -34,8 +34,8 @@ public class AppointXianShiBiaoTest {
         homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
         homePage.getAccountCenterPage();
-        appointInvestPage.appointInvestPage(driver,"5868");
-
+        appointInvestPage.appointInvestPage(driver, "5868");
+        WebDriverUtil.sleep(2000);
     }
     @AfterTest
     public void tearDown(){

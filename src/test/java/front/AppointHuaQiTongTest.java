@@ -35,8 +35,8 @@ public class AppointHuaQiTongTest {
         homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
         homePage.getAccountCenterPage();
-        appointInvestPage.appointInvestPage(driver,"5893");
-
+        appointInvestPage.appointInvestPage(driver, "5893");
+        WebDriverUtil.sleep(2000);
     }
     @AfterTest
     public void tearDown(){

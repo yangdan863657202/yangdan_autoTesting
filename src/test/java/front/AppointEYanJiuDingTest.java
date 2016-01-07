@@ -35,7 +35,8 @@ public class AppointEYanJiuDingTest {
         homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
         homePage.getAccountCenterPage();
-        appointInvestPage.appointInvestPage(driver,"5866");
+        appointInvestPage.appointInvestPage(driver, "5866");
+        WebDriverUtil.sleep(2000);
 
     }
     @AfterTest
