@@ -17,7 +17,7 @@ import xpath.front.SignPageXpath;
 /**
  * Created by yangdan
  */
-public class AppointmentInvestTest {
+public class BindNewPhoneNumberTest {
     private WebDriver driver;
     HomePage homePage=new HomePage();
 
@@ -32,8 +32,13 @@ public class AppointmentInvestTest {
         WebDriverUtil.sleep(1000);
         homePage.getAccountCenterPage();
         WebDriverUtil.sleep(1000);
-        WebDriverUtil.getElement(driver,"//*[@id=\"container\"]/div[3]/div[1]/div[1]/ul/li[2]/a").click();
+        WebDriverUtil.getElement(driver,"/html/body/div[2]/div[1]/ul/li[6]/a").click();
+        WebDriverUtil.sleep(1000);
+        WebDriverUtil.getElement(driver,"//*[@id=\"container\"]/div/div[2]/div[3]/div[3]/a").click();
+        WebDriverUtil.getElement(driver, "//*[@id=\"new_phone\"]").sendKeys("13817506005");
+        WebDriverUtil.getElement(driver, "//*[@id=\"card\"]").sendKeys("310110198304191537");
 
+        WebDriverUtil.getElement(driver,"//*[@id=\"container\"]/div[2]/div[2]/div/div[6]/a").click();
 
     }
     @AfterTest
@@ -41,4 +46,5 @@ public class AppointmentInvestTest {
 
         driver.quit();
     }
+
 }

@@ -1,5 +1,6 @@
 package front;
 
+
 import exception.PageElementNotException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +18,7 @@ import xpath.front.SignPageXpath;
 /**
  * Created by yangdan
  */
-public class InvestmentTicketTest {
+public class ModifyLoginPasswordTest {
     private WebDriver driver;
     HomePage homePage=new HomePage();
 
@@ -32,8 +33,13 @@ public class InvestmentTicketTest {
         WebDriverUtil.sleep(1000);
         homePage.getAccountCenterPage();
         WebDriverUtil.sleep(1000);
-        WebDriverUtil.getElement(driver,"//*[@id=\"container\"]/div[3]/div[1]/div[1]/ul/li[3]/a").click();
-
+        WebDriverUtil.getElement(driver,"/html/body/div[2]/div[1]/ul/li[6]/a").click();
+        WebDriverUtil.sleep(1000);
+        WebDriverUtil.getElement(driver,"//*[@id=\"container\"]/div/div[2]/div[2]/div[3]/a").click();
+        WebDriverUtil.getElement(driver, "//*[@id=\"oldpassword\"]").sendKeys("123456");
+        WebDriverUtil.getElement(driver, "//*[@id=\"newpassword\"]").sendKeys("123456");
+        WebDriverUtil.getElement(driver, "//*[@id=\"renewpassword\"]").sendKeys("123456");
+        WebDriverUtil.getElement(driver,"//*[@id=\"container\"]/div[2]/div[2]/div/div[4]/a").click();
 
     }
     @AfterTest
@@ -41,4 +47,5 @@ public class InvestmentTicketTest {
 
         driver.quit();
     }
+
 }

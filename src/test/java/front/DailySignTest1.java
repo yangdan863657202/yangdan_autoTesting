@@ -14,7 +14,7 @@ import util.WebDriverUtil;
 /**
  * Created by Yangdan
  */
-public class DailySignTest {
+public class DailySignTest1 {
     private WebDriver driver;
     HomePage homePage=new HomePage();
 

@@ -17,7 +17,7 @@ import xpath.front.SignPageXpath;
 /**
  * Created by yangdan
  */
-public class DebtTransferTest {
+public class BindMailboxAccountTest {
     private WebDriver driver;
     HomePage homePage=new HomePage();
 
@@ -32,8 +32,13 @@ public class DebtTransferTest {
         WebDriverUtil.sleep(1000);
         homePage.getAccountCenterPage();
         WebDriverUtil.sleep(1000);
-        WebDriverUtil.getElement(driver,"//*[@id=\"container\"]/div[3]/div[1]/div[1]/ul/li[1]/a").click();
+        WebDriverUtil.getElement(driver,"/html/body/div[2]/div[1]/ul/li[6]/a").click();
+        WebDriverUtil.sleep(1000);
+        WebDriverUtil.getElement(driver,"//*[@id=\"container\"]/div/div[2]/div[4]/div[3]/a").click();
+        WebDriverUtil.getElement(driver, "//*[@id=\"newEmail\"]").sendKeys("13817506005@163.com");
+        WebDriverUtil.getElement(driver, "//*[@id=\"newpassword\"]").sendKeys("123456");
 
+        WebDriverUtil.getElement(driver,"//*[@id=\"container\"]/div[2]/div[2]/div/div[5]/a").click();
 
     }
     @AfterTest
@@ -41,4 +46,5 @@ public class DebtTransferTest {
 
         driver.quit();
     }
+
 }
