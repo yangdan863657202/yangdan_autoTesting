@@ -98,6 +98,24 @@ public class InvestPage {
 
     }
 
+    public void immediateInvestClick4(WebDriver driver,String investAmount,String paymentPassword){
+        WebDriverUtil.sleep(2000);
+        WebDriverUtil.getElement(driver, "//*[@id=\"investMoney\"]").clear();
+        WebDriverUtil.getElement(driver,"//*[@id=\"investMoney\"]").sendKeys(investAmount);
+        //WebDriverUtil.getElement(driver, InvestPageXpath.IMMEDIATE_INVEST_BUTTON).click();
+        driver.findElement(By.linkText("立即投资")).click();
+
+        WebDriverUtil.sleep(2000);
+        WebDriverUtil.maxWindow(driver);
+
+        WebDriverUtil.getElement(driver,"//*[@id=\"invest_sure\"]").click();
+
+        WebDriverUtil.sleep(1000);
+        WebDriverUtil.getElement(driver, InvestPageXpath.PAYMENT_PASSWORD_INPUT).sendKeys(paymentPassword);
+        WebDriverUtil.getElement(driver, InvestPageXpath.CONFIRM_PAYMENT_BUTTON).click();
+
+    }
+
     //将滚动条滚到适合的位置
     public void setScroll(WebDriver driver,int height){
         try {
