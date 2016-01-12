@@ -14,7 +14,7 @@ import util.WebDriverUtil;
 /**
  * Created by yangdan
  */
-public class InvestPuHuiJingXuanTest1 {
+public class InvestEYanJiuDingTest5 {
     private WebDriver driver;
     HomePage homePage=new HomePage();
     InvestPage investPage=new InvestPage();
@@ -28,8 +28,13 @@ public class InvestPuHuiJingXuanTest1 {
     public void investEYanJiuDingTest()throws PageElementNotException {
         homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
-        driver.get("http://yjf3.pccb.com/invest/5910.html");
-        investPage.immediateInvestClick4(driver, Integer.toString(2000),"123abc");
+        homePage.getInvestPage();
+        WebDriverUtil.sleep(2000);
+        investPage.setScrollToElement(driver, "/html/body/div[4]/div/div/div/div[2]/ul/li[1]");
+        WebDriverUtil.maxWindow(driver);
+        //investPage.immediateBuyingClick(driver, "Auto Testing 华企通勿投");
+        driver.get("http://yjf3.pccb.com/Rent/detail/bid/5552");
+        investPage.immediateInvestClick7(driver, Integer.toString(1),"1234abc");
     }
     @AfterTest
     public void tearDown(){

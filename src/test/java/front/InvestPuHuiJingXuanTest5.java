@@ -14,7 +14,7 @@ import util.WebDriverUtil;
 /**
  * Created by yangdan
  */
-public class InvestPuHuiJingXuanTest1 {
+public class InvestPuHuiJingXuanTest5 {
     private WebDriver driver;
     HomePage homePage=new HomePage();
     InvestPage investPage=new InvestPage();
@@ -29,7 +29,7 @@ public class InvestPuHuiJingXuanTest1 {
         homePage = new LoginPage().login(driver);
         WebDriverUtil.sleep(1000);
         driver.get("http://yjf3.pccb.com/invest/5910.html");
-        investPage.immediateInvestClick4(driver, Integer.toString(2000),"123abc");
+        investPage.immediateInvestClick5(driver, Integer.toString(2000),"123abc");
     }
     @AfterTest
     public void tearDown(){
