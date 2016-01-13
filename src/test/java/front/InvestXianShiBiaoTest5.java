@@ -37,6 +37,6 @@ public class InvestXianShiBiaoTest5 {
     }
     @AfterTest
     public void tearDown(){
-        //driver.quit();
+        driver.quit();
     }
 }
