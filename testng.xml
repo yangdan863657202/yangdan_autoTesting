@@ -20,12 +20,7 @@
         </classes>
     </test>
 
-    <test name="GetFundDetailTest" preserve-order="true">
-        <classes>
-            <class name="front.GetFundDetailTest">
-            </class>
-        </classes>
-    </test>
+    
     <test name="SignTest1" preserve-order="true">
         <classes>
             <class name="front.SignTest1">
