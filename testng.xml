@@ -87,7 +87,12 @@
             </class>
         </classes>
     </test>
-
+<test name="RechargeTest4" preserve-order="true">
+        <classes>
+            <class name="front.RechargeTest4">
+            </class>
+        </classes>
+    </test>
     <!--
   <test name="UI自动化" preserve-order="true">
       <packages>
